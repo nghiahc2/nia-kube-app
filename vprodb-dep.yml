@@ -19,7 +19,7 @@ spec:
         image: vprofile/vprofiledb:V1
         volumeMounts:
           - mountPath: /var/lib/mysql
-            name: vpro-db-data
+            name: vprodb-data
         resources:
           limits:
             memory: "128Mi"
@@ -47,5 +47,5 @@ spec:
           args: ["rm", "-rf", "/var/lib/mysql/lost+found"]
           volumeMounts:
             - mountPath: /var/lib/mysql
-              name: vpro-db-data
+              name: vprodb-data
 
