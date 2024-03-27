@@ -15,20 +15,20 @@ spec:
         app: vprodb
     spec:
       containers:
-      - name: vprodb
-        image: vprofile/vprofiledb:V1
-        volumeMounts:
-          - mountPath: /var/lib/mysql
-            name: vprodb-data
-        ports:
-          - name: vprodb-port
-            containerPort: 3306
-        env:
-          - name: MYSQL_ROOT_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: app-secret
-                key: db-pass
+        - name: vprodb
+          image: vprofile/vprofiledb:V1
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: vprodb-data
+          ports:
+            - name: vprodb-port
+              containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: app-secret
+                  key: db-pass
       nodeSelector:
         zone: us-east-1a
       volumes:
